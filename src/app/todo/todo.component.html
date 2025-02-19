@@ -1,0 +1,21 @@
+
+<p>sampletodo works!</p>
+
+<h2>Todo List</h2>
+
+<div class="addtask">
+<input [(ngModel)]="newTask" placeholder="enter new task">
+<button (click)="addTask()">Add Task</button>
+</div>
+
+<div class="taskList">
+<li *ngFor="let todoItem of todoList;let i=index">
+
+<input type="checkbox" name="" id="" (change)="toggleCompleted(i)">
+<span [class.completed]="todoItem.completed" >{{todoItem.task}}</span>
+<button class="deleteButton" (click)="deleteTask(todoItem.id)">Delete</button>
+
+</li>
+</div>
+
+<router-outlet/>
