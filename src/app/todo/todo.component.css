@@ -1,4 +1,111 @@
-.completed {
-        text-decoration: line-through;
-        text-decoration-color: rgb(228, 78, 58);
-      }
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.todo-container {
+  background: #1a1a1a;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  color: #1e3a8a;
+  margin-bottom: 15px;
+}
+
+.addtask {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.addtask input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #2c2c2c;
+  color: #ffffff;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.addtask input:focus {
+  border-color: #1e3a8a;
+}
+
+.addtask button {
+  padding: 0 15px;
+  border: none;
+  background: #1e3a8a;
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.addtask button:hover {
+  background: #2642a4;
+  transform: scale(1.1);
+}
+
+.taskList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.taskList li {
+  background: #2a2a2a;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  transition: transform 0.3s, background 0.3s;
+  color: #bbbbbb;
+}
+
+.taskList li:hover {
+  background: #333;
+}
+
+.taskList li.completed span {
+  text-decoration: line-through;
+  color: #555;
+}
+
+.taskList .deleteButton {
+  background: transparent;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.taskList .deleteButton:hover {
+  transform: scale(1.2);
+}

@@ -1,21 +1,24 @@
+<div class="todo-container">
+  <h2>My Todo List</h2>
 
-<p>sampletodo works!</p>
+  <section class="addtask">
+    <input [(ngModel)]="newTask" placeholder="Add a new task..." aria-label="New Task">
+    <button type="button" (click)="addTask()">+</button>
+  </section>
 
-<h2>Todo List</h2>
+  <ul class="taskList">
+    <li *ngFor="let todoItem of todoList; let i = index" 
+        [class.completed]="todoItem.completed"
+        [@fadeAnimation]>
+      <label>
+        <input type="checkbox" (change)="toggleCompleted(i)" [checked]="todoItem.completed">
+        <span>{{ todoItem.task }}</span>
+      </label>
+      <button type="button" class="deleteButton" (click)="deleteTask(todoItem.id)" aria-label="Delete Task">
+        ✖
+      </button>
+    </li>
+  </ul>
 
-<div class="addtask">
-<input [(ngModel)]="newTask" placeholder="enter new task">
-<button (click)="addTask()">Add Task</button>
+  <router-outlet></router-outlet>
 </div>
-
-<div class="taskList">
-<li *ngFor="let todoItem of todoList;let i=index">
-
-<input type="checkbox" name="" id="" (change)="toggleCompleted(i)">
-<span [class.completed]="todoItem.completed" >{{todoItem.task}}</span>
-<button class="deleteButton" (click)="deleteTask(todoItem.id)">Delete</button>
-
-</li>
-</div>
-
-<router-outlet/>
